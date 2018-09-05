@@ -21,6 +21,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 PRODUCT_NAME := aosp_f5121
 PRODUCT_DEVICE := suzu
-PRODUCT_MODEL := Xperia X (AOSP)
+PRODUCT_MODEL := Xperia X
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
