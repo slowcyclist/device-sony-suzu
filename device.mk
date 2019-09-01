@@ -14,6 +14,7 @@
 
 # Device path
 DEVICE_PATH := device/sony/suzu
+CM_BUILD := suzu
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
