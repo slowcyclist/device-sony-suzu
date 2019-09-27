@@ -28,6 +28,8 @@ PRODUCT_PLATFORM := loire
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=suzu
 BOARD_KERNEL_CMDLINE += selinux=0
+BOARD_KERNEL_CMDLINE += systempart=/dev/disk/by-partlabel/system
+BOARD_KERNEL_CMDLINE += datapart=/dev/disk/by-partlabel/userdata
 
 # Recovery config
 BOARD_SONY_INIT_FLAGS += -DDEV_BLOCK_FOTA_NUM="42"
