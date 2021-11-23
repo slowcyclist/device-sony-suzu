@@ -30,6 +30,7 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=suzu
 BOARD_KERNEL_CMDLINE += selinux=0
 BOARD_KERNEL_CMDLINE += systempart=/dev/disk/by-partlabel/system
 BOARD_KERNEL_CMDLINE += datapart=/dev/disk/by-partlabel/userdata
+BOARD_KERNEL_CMDLINE += watchdog_v2.ipi_opt_en=1
 
 # Recovery config
 BOARD_SONY_INIT_FLAGS += -DDEV_BLOCK_FOTA_NUM="42"
