@@ -180,6 +180,10 @@ ACTION=="add", KERNEL=="ttyMSM0", OWNER="bluetooth", GROUP="bluetooth", MODE="06
 ACTION=="add", KERNEL=="fingerprint", OWNER="system", GROUP="input", MODE="0664"
 ACTION=="add", KERNEL=="pn54x", OWNER="nfc", GROUP="nfc", MODE="0660"
 ACTION=="add", KERNEL=="input[0-9]*", SUBSYSTEM=="input", ENV{ID_INPUT}=="1", ATTRS{name}=="clearpad", ENV{ID_INPUT_TOUCHSCREEN}="1"
-ACTION=="change", SUBSYSTEM=="rfkill", ENV{RFKILL_NAME}=="bcm43xx Bluetooth", RUN+="/bin/bash /system/halium/usr/share/bluetooth-touch/loire"
-ACTION=="change", SUBSYSTEM=="rfkill", ENV{RFKILL_NAME}=="hci0", ENV{RFKILL_STATE}=="0", RUN+="/bin/bash /system/halium/usr/share/bluetooth-touch/loire"
+
+# brcm_patchram_plus cannot function properly across this device being rfkill-ed.
+# So it has to be stop & start when it's off/on. 
+ACTION=="change", SUBSYSTEM=="rfkill", ENV{RFKILL_NAME}=="bcm43xx Bluetooth", ENV{RFKILL_STATE}=="1", RUN+="/usr/sbin/service bluetooth-touch start"
+ACTION=="change", SUBSYSTEM=="rfkill", ENV{RFKILL_NAME}=="bcm43xx Bluetooth", ENV{RFKILL_STATE}=="0", RUN+="/usr/sbin/service bluetooth-touch stop", RUN+="/usr/sbin/service bluetooth-touch-android stop"
+
 ACTION=="add", KERNEL=="v4l2loopback", GROUP="video", MODE="0660"
