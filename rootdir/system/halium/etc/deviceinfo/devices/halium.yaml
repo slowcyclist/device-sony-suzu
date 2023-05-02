@@ -1,0 +1,5 @@
+suzu:
+  XwaylandShm:
+    - true
+  VibrateDurationExtraMs:
+    - 40
